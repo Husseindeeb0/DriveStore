@@ -20,6 +20,28 @@
 
     <!-- Hero Section -->
     <section class="hero">
+      <!-- Background Slideshow -->
+      <div class="hero-bg-slideshow">
+        <div
+          class="hero-bg-slide active"
+          style="background-image: url('images/bg1.png')"
+        ></div>
+        <div
+          class="hero-bg-slide"
+          style="background-image: url('images/bg2.png')"
+        ></div>
+        <div
+          class="hero-bg-slide"
+          style="background-image: url('images/bg3.png')"
+        ></div>
+        <div
+          class="hero-bg-slide"
+          style="background-image: url('images/bg4.png')"
+        ></div>
+        <!-- To make the text shown better with a dark background -->
+        <div class="hero-overlay"></div>
+      </div>
+
       <div class="container">
         <div style="display: flex; align-items: center; flex-wrap: wrap">
           <div class="hero-content">
@@ -52,13 +74,93 @@
               </div>
             </div>
           </div>
-          <div class="hero-image">
-            <!-- Using one of the user's images -->
-            <img
-              src="images/landingImage.png"
-              alt="Luxury Sports Car"
-              class="hero-car"
-            />
+
+          <!-- Lead Gen Form -->
+          <div
+            class="hero-image"
+            style="flex: 1; min-width: 300px; padding-left: 20px; z-index: 10"
+          >
+            <div class="glass-panel hero-form-container">
+              <h3>
+                <i
+                  class="fa-solid fa-paper-plane"
+                  style="color: var(--accent-color); margin-right: 10px"
+                ></i>
+                Get in Touch
+              </h3>
+              <form id="leadForm">
+                <div class="form-row">
+                  <div class="form-group half">
+                    <label><i class="fa-solid fa-user"></i> Name</label>
+                    <input type="text" placeholder="John Doe" required />
+                  </div>
+                  <div class="form-group half">
+                    <label><i class="fa-solid fa-phone"></i> Phone</label>
+                    <input type="tel" placeholder="+1 234..." required />
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label><i class="fa-solid fa-envelope"></i> Email</label>
+                  <input type="email" placeholder="john@example.com" required />
+                </div>
+
+                <div class="form-group">
+                  <label
+                    ><i class="fa-solid fa-car"></i> Interested Brand</label
+                  >
+                  <div class="select-wrapper">
+                    <select required>
+                      <option value="" disabled selected>Select a Brand</option>
+                      <option value="mercedes">Mercedes-Benz</option>
+                      <option value="bmw">BMW</option>
+                      <option value="audi">Audi</option>
+                      <option value="porsche">Porsche</option>
+                      <option value="ferrari">Ferrari</option>
+                      <option value="lamborghini">Lamborghini</option>
+                    </select>
+                    <i class="fa-solid fa-chevron-down select-arrow"></i>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label><i class="fa-solid fa-comment"></i> Message</label>
+                  <textarea
+                    rows="3"
+                    placeholder="I'm interested in..."
+                    style="resize: none"
+                  ></textarea>
+                </div>
+
+                <button
+                  type="submit"
+                  class="btn btn-primary"
+                  style="width: 100%; margin-top: 10px"
+                >
+                  Send Inquiry
+                  <i
+                    class="fa-solid fa-arrow-right"
+                    style="margin-left: 8px"
+                  ></i>
+                </button>
+              </form>
+
+              <!-- Success Message (Hidden) -->
+              <div class="form-success" id="formSuccess">
+                <div class="success-icon">
+                  <i class="fa-solid fa-check"></i>
+                </div>
+                <h4>Request Sent!</h4>
+                <p>We'll be in touch regarding your dream car shortly.</p>
+                <button
+                  class="btn btn-outline btn-sm"
+                  onclick="resetFormView()"
+                  style="margin-top: 20px"
+                >
+                  Send Another
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -124,5 +226,6 @@
     >
       <p>&copy; 2025 Prestige Motors. All rights reserved.</p>
     </footer>
+    <script src="script.js"></script>
   </body>
 </html>
