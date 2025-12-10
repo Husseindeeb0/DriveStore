@@ -43,4 +43,24 @@ document.addEventListener("DOMContentLoaded", () => {
       formSuccess.classList.remove("visible");
     }
   };
+
+  // 3. Scroll Animation Logic (IntersectionObserver)
+  const observerOptions = {
+    threshold: 0.1, // Trigger when 10% of the element is visible
+    rootMargin: "0px 0px -50px 0px", // Offset a bit so it triggers before bottom
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("visible");
+      } else {
+        // Remove the class when it leaves the viewport to allow re-animation
+        entry.target.classList.remove("visible");
+      }
+    });
+  }, observerOptions);
+
+  const scrollElements = document.querySelectorAll(".scroll-animate");
+  scrollElements.forEach((el) => observer.observe(el));
 });
