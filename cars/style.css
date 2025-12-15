@@ -1,0 +1,284 @@
+/*
+ * ELECTRIC BLUE & GOLD DARK THEME CSS - ADVANCED STOCK
+ */
+
+:root {
+    /* Professional Color Palette (NEW) */
+    --bg-color: #0a0a0a;                       /* Background: Darkest Black/Grey */
+    --surface-color: #1a1a1a;                  /* Surface: Slightly lighter than BG (Used for cards) */
+    --accent-color: #3b82f6;                   /* Accent (Electric Blue): Primary highlight */
+    --accent-glow: rgba(59, 130, 246, 0.5);    /* Accent Glow: Transparent blue for headers/borders */
+    --gold-accent: #ffd700;                    /* Gold Accent: Secondary highlight */
+    /* CRITICAL: Hero Gradient for the body background */
+    --hero-gradient: radial-gradient(circle at top right, #1e1e2f, #0a0a0a); 
+
+    /* Typography Colors */
+    --text-primary: #ffffff;                   
+    --text-secondary: #a0a0a0;                 
+    
+    /* Functional Colors (Maintained) */
+    --color-success: #4caf50; 
+    --color-error: #f44336; 
+
+    /* Mapped from old variables for structural continuity */
+    --color-background: var(--bg-color);
+    --color-text-light: var(--text-primary);
+    --color-highlight: var(--accent-color); 
+    --color-card-background: var(--surface-color);
+    --color-header-footer: var(--accent-glow); 
+}
+
+/* 1. Global Styling */
+body {
+    font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    
+    /* FIX: Ensure gradient and background color are set. The gradient sits on top of the bg-color. */
+    background: var(--hero-gradient); 
+    background-color: var(--bg-color); 
+    
+    color: var(--color-text-light);
+    margin: 0;
+    padding: 0;
+    line-height: 1.7; 
+    scroll-behavior: smooth; 
+    overflow-x: hidden; 
+
+    /* STICKY FOOTER LAYOUT */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; 
+}
+
+a {
+    color: var(--color-highlight); 
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--gold-accent); 
+}
+
+/* 2. HEADER & FOOTER Styling */
+.site-header, .site-footer {
+    /* Using transparent accent glow for a blurred, modern header/footer */
+    background-color: var(--color-header-footer); 
+    padding: 15px 40px;
+    /* Use a surface color border for depth */
+    border-bottom: 1px solid var(--surface-color); 
+    z-index: 1001;
+    backdrop-filter: blur(10px); 
+}
+
+.site-header {
+    position: sticky;
+    top: 0;
+}
+
+.site-footer {
+    margin-top: 60px;
+    text-align: center;
+    padding: 25px 40px;
+    border-top: 1px solid var(--surface-color);
+    border-bottom: none;
+    font-size: 0.9em;
+    color: var(--text-secondary); 
+}
+
+.logo {
+    font-size: 1.5em;
+    font-weight: 900;
+    color: var(--gold-accent); 
+    letter-spacing: 2px;
+}
+
+.back-link {
+    display: block; 
+    padding: 20px 0;
+    font-size: 1.1em;
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: var(--text-secondary); 
+}
+
+/* 3. Layout Structure & Typography Adjustments */
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 40px;
+    flex-grow: 1; 
+}
+
+p {
+    font-size: 1.25em; 
+    font-weight: 300; 
+    margin-bottom: 20px;
+    color: var(--text-secondary); 
+}
+
+h1 {
+    font-size: 4.5em;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: -2px;
+    margin: 0 0 20px 0;
+    color: var(--text-primary); 
+    line-height: 1.1;
+}
+
+h2 {
+    /* Using the Accent Color (Electric Blue) for major headers */
+    font-size: 2.2em;
+    font-weight: 700;
+    color: var(--color-highlight); 
+}
+
+/* Car Image on Right Layout */
+.header-section {
+    display: flex;
+    flex-direction: row-reverse; 
+    align-items: center;
+    gap: 80px;
+    padding: 80px 0;
+    min-height: 70vh;
+}
+
+.overview-text-wrapper {
+    max-width: 50%;
+}
+
+/* --- CAROUSEL STYLING --- */
+
+.carousel-container {
+    height: 600px; 
+    max-width: 50%;
+    border-radius: 12px;
+    transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.4s ease;
+    /* Added subtle blue glow to non-hover state */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8), 0 0 5px var(--accent-glow); 
+    border: 1px solid var(--surface-color); 
+}
+
+.carousel-viewport {
+    width: 100%;
+    height: 100%;
+    overflow: hidden; 
+    border-radius: 12px;
+}
+
+.carousel-inner {
+    display: flex;
+    width: 400%; 
+    height: 100%;
+    transition: transform 0.5s ease-in-out; 
+}
+
+.slide {
+    min-width: 25%; 
+    height: 100%;
+}
+
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+/* Hover Zoom Wrapper (Heading + Content Card) */
+.section-to-animate {
+    margin-top: 80px;
+    margin-bottom: 60px; 
+    transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.4s ease; 
+}
+
+.section-to-animate:hover, .carousel-container:hover {
+    transform: scale(1.04); 
+    /* Strong Electric Blue Glow on hover */
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.9), 0 0 25px var(--accent-color); 
+}
+
+/* Spacing Fix */
+.section-to-animate h2 {
+    margin-top: 0;
+    margin-bottom: 25px; 
+}
+
+.content-card {
+    /* CRITICAL FIX: Ensure cards use the lighter Surface Color for contrast */
+    background-color: var(--surface-color); 
+    padding: 35px;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.6); 
+    transition: box-shadow 0.3s ease;
+    /* Using darkest BG color as a subtle border for separation */
+    border: 1px solid var(--bg-color); 
+}
+
+/* Internal Card Headings */
+.content-card h3 {
+    /* Using Gold Accent for internal card headings */
+    color: var(--gold-accent); 
+}
+
+/* Pros and Cons Colors (Functional) */
+.pros h3 {
+    color: var(--color-success); 
+}
+
+.cons h3 {
+    color: var(--color-error); 
+}
+
+/* TECHNICAL SPECS LAYOUT (Side-by-side) */
+.specs-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+}
+
+/* Pros and Cons Layout */
+.features-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+}
+
+ul {
+    padding-left: 20px;
+    list-style-type: none;
+}
+
+ul li {
+    padding-left: 1.5em;
+    position: relative;
+    margin-bottom: 10px;
+    color: var(--text-secondary); 
+}
+
+ul li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    /* Using Gold Accent for list markers */
+    color: var(--gold-accent); 
+    font-weight: bold;
+}
+
+/* 4. Dynamic Continuous Fade In/Out Animation (Unchanged) */
+.fade-item {
+    opacity: 0;
+    transform: translateY(30px); 
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out; 
+}
+
+.fade-item.stagger-1 { transition-delay: 0.1s; }
+.fade-item.stagger-2 { transition-delay: 0.2s; }
+.fade-item.stagger-3 { transition-delay: 0.3s; }
+.fade-item.stagger-4 { transition-delay: 0.4s; }
+.fade-item.stagger-5 { transition-delay: 0.5s; }
+
+.fade-item.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
