@@ -2,6 +2,12 @@ body {
   padding-top: 110px;
 }
 
+/* Ensure padding doesn't increase width causing overflow */
+.header,
+.header * {
+  box-sizing: border-box;
+}
+
 .header {
   /* CHANGED: Glassmorphism Background */
   background-color: rgba(26, 26, 26, 0.3); /* Semi-transparent */
@@ -11,6 +17,7 @@ body {
   position: fixed;
   top: 0;
   width: 100%;
+  max-width: 100vw; /* Prevent overflow */
   z-index: 1000;
   height: 60px;
   transition: height 0.3s ease, background-color 0.3s ease; /* Added transition */

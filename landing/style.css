@@ -8,7 +8,7 @@
   position: relative;
   overflow: hidden;
   background: radial-gradient(circle at top right, #1e1e2f, var(--bg-color));
-  padding: 70px 0;
+  padding: 30px 0;
 }
 
 .hero-content {
@@ -19,6 +19,7 @@
 
 .hero-text-wrapper {
   animation: fadeInUp 1s ease forwards 0.2s;
+  margin-bottom: 100px;
 }
 
 .hero h1 {
