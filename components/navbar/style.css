@@ -1,0 +1,208 @@
+body {
+  padding-top: 110px;
+}
+
+.header {
+  /* CHANGED: Glassmorphism Background */
+  background-color: rgba(26, 26, 26, 0.3); /* Semi-transparent */
+  backdrop-filter: blur(12px); /* Blur effect */
+  -webkit-backdrop-filter: blur(12px); /* Safari support */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5); /* Softer shadow */
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  height: 60px;
+  transition: height 0.3s ease, background-color 0.3s ease; /* Added transition */
+
+  /* ADDED: Defined Blue Line at the Bottom */
+  border-bottom: 2px solid rgba(59, 130, 246, 0.5); /* Semi-transparent accent border */
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  height: 100%;
+}
+
+.logo {
+  font-size: 1.8em;
+  font-weight: bold;
+  transition: font-size 0.3s ease; /* Added transition */
+}
+
+.logo-accent {
+  color: #ffd700;
+}
+
+.nav-menu {
+  list-style: none;
+  display: flex;
+}
+
+.nav-menu li {
+  margin-left: 20px;
+}
+
+.nav-menu a {
+  font-size: 1em;
+  padding: 20px 0;
+  display: block;
+  transition: color 0.2s, font-size 0.3s ease; /* Added transition */
+  position: relative; /* Needed for the underline effect */
+}
+
+/* NEW CLASS: Smaller/Shrunken Navbar state */
+.header-shrink {
+  height: 45px; /* Smaller height */
+}
+
+.header-shrink .logo {
+  font-size: 1.4em; /* Smaller logo */
+}
+
+.header-shrink .nav-menu a {
+  font-size: 0.9em; /* Smaller links */
+  padding: 14px 0;
+}
+
+/* NEW: Blue Underline on Hover */
+.nav-menu a:hover {
+  color: #3a86ff;
+}
+
+.nav-menu a:hover::after {
+  content: "";
+  position: absolute;
+  bottom: 12px;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background-color: #3a86ff; /* Dark Blue Underline */
+  transition: width 0.3s ease;
+}
+
+/* ---------------------------------- */
+/* 2. PROMOTIONAL MARQUEE BANNER */
+/* ---------------------------------- */
+
+.promo-ticker {
+  background-color: #0f1d3f;
+  overflow: hidden;
+  white-space: nowrap;
+  padding: 5px 0;
+  position: fixed;
+  top: 60px;
+  width: 100%;
+  z-index: 999;
+  border-top: 1px solid #000000;
+  border-bottom: 1px solid #000000;
+  transition: top 0.3s ease; /* Added transition for smooth movement */
+}
+
+.header-shrink + .promo-ticker {
+  top: 45px; /* Banner moves up when header shrinks */
+}
+
+.ticker-content {
+  display: inline-block;
+  animation: marquee 30s linear infinite;
+}
+
+.ticker-content p {
+  color: #ffd700;
+  font-size: 0.9em;
+  font-weight: 600;
+  text-transform: uppercase;
+  padding: 0 50px;
+}
+
+.banner-link {
+  color: #ffffff;
+  text-decoration: underline;
+  transition: color 0.2s;
+}
+
+.banner-link:hover {
+  color: #3a86ff;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translate3d(100%, 0, 0);
+  }
+  100% {
+    transform: translate3d(-100%, 0, 0);
+  }
+}
+
+/* ---------------------------------- */
+/* 3. MOBILE RESPONSIVENESS           */
+/* ---------------------------------- */
+
+@media (max-width: 768px) {
+  /* Adjust Global Body Padding for Taller Mobile Header */
+  body {
+    padding-top: 160px; /* ~110px (header) + 40px (ticker) + buffer */
+  }
+
+  /* 1. Stack Header Elements */
+  .header {
+    height: auto; /* Let height grow to fit stacked content */
+    padding: 10px 0;
+  }
+
+  .navbar {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  /* 2. Center and Adjust Logo */
+  .logo {
+    font-size: 1.5em;
+  }
+
+  /* 3. Adjust Menu for Mobile (Row layout, smaller text) */
+  .nav-menu {
+    width: 100%;
+    justify-content: center;
+    gap: 15px; /* Reduce gap */
+    flex-wrap: wrap; /* Allow wrapping on very small screens */
+  }
+
+  .nav-menu li {
+    margin-left: 0; /* Remove left margin in favor of gap */
+  }
+
+  .nav-menu a {
+    font-size: 0.9em;
+    padding: 5px 0; /* Reduce vertical padding */
+  }
+
+  .nav-menu a:hover::after {
+    bottom: 2px; /* Adjust underline position */
+  }
+
+  /* 4. Reposition Ticker below the Taller Header */
+  .promo-ticker {
+    top: 110px; /* Pushed down by stacked header (approx height) */
+  }
+
+  /* Adjustments when Header Shrinks (Scrolling) */
+  .header-shrink {
+    height: auto;
+    padding: 5px 0;
+  }
+
+  .header-shrink .logo {
+    font-size: 1.3em;
+  }
+
+  .header-shrink + .promo-ticker {
+    top: 95px;
+  }
+}

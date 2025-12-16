@@ -1,152 +1,179 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sell Your Car - Advanced Stock Trial</title>
-    <link rel="stylesheet" href="style.css"> 
-    <style>
-        /* *** SELL.HTML SPECIFIC STYLES FOR THE "GLASSY" LOOK *** */
-        .container {
-            max-width: 800px;
-            padding: 40px;
-            /* Glassmorphism Effect: Dark Surface with High Blur */
-            background-color: rgba(16, 16, 16, 0.9); /* Almost solid black, slightly translucent */
-            backdrop-filter: blur(15px); 
-            -webkit-backdrop-filter: blur(15px);
-            /* Soft border matching the overall structure */
-            border: 1px solid rgba(255, 255, 255, 0.05); 
-            border-radius: 20px; /* Highly rounded corners, like the image */
-            /* Strong blue accent shadow for the glow effect */
-            box-shadow: 0 0 50px var(--accent-glow);
-        }
-        h1 {
-            color: var(--text-primary); /* White text for main heading */
-            text-align: center;
-            margin-bottom: 30px;
-            text-shadow: 0 0 15px var(--accent-glow); /* Subtle glow under the title */
-        }
-        h2 {
-            color: var(--text-primary); /* White text for subheadings */
-            margin-top: 25px;
-            margin-bottom: 15px;
-        }
-        .sell-form label {
-            display: block;
-            margin-top: 15px;
-            margin-bottom: 5px;
-            font-weight: 500;
-            color: var(--text-secondary); /* Subdued label color */
-        }
-        /* Input and Textarea Styling (Solid Dark, High Contrast) */
-        .sell-form input[type="text"],
-        .sell-form input[type="number"],
-        .sell-form input[type="email"],
-        .sell-form input[type="tel"],
-        .sell-form textarea {
-            width: 100%;
-            padding: 12px;
-            margin-bottom: 20px;
-            /* Solid dark background like the reference image */
-            border: 1px solid #333; 
-            border-radius: 6px;
-            background-color: #0d0d0d; /* Very dark input background */
-            color: var(--text-primary);
-            box-sizing: border-box;
-            transition: all 0.3s ease;
-        }
-        .sell-form input:focus, .sell-form textarea:focus {
-            outline: none;
-            /* Blue border and intense glow on focus */
-            border-color: var(--accent-color);
-            box-shadow: 0 0 15px var(--accent-glow);
-        }
-        .sell-form input[type="file"] {
-            margin-top: 10px;
-            color: var(--accent-color);
-        }
-        /* Button Styling (Bright Blue, Strong Glow) */
-        .sell-form button {
-            display: block;
-            width: 100%;
-            padding: 15px;
-            background-color: var(--accent-color); 
-            color: var(--text-primary); 
-            border: none;
-            border-radius: 8px; 
-            font-size: 1.1em;
-            font-weight: bold;
-            cursor: pointer;
-            transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
-            /* Prominent button glow */
-            box-shadow: 0 0 20px var(--accent-glow);
-        }
-        .sell-form button:hover {
-            background-color: #4f96ff;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 30px var(--accent-glow);
-        }
-        #message {
-            margin-top: 20px;
-            text-align: center;
-            font-weight: bold;
-            color: var(--accent-color);
-        }
-    </style>
-</head>
-<body>
-    
-    <header class="site-header">
-        <div class="logo">
-            ADVANCED STOCK
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="../style.css" />
+    <link rel="stylesheet" href="../components/style.css" />
+    <link rel="stylesheet" href="../components/navbar/style.css" />
+  </head>
+  <body>
+    <div id="navbar-placeholder"></div>
+    <div class="bg-glow glow-1"></div>
+    <div class="bg-glow glow-2"></div>
+
+    <div class="container glass-panel results-container">
+      <a href="stockfinal.html" class="back-link">← Back to Inventory</a>
+
+      <h1>Sell Your Car to Advanced Stock</h1>
+      <p style="text-align: center; color: var(--text-secondary)">
+        Please provide your vehicle and contact details below. All fields are
+        required.
+      </p>
+
+      <form id="sellCarForm" class="sell-form">
+        <div
+          class="section-header"
+          style="margin-bottom: 30px; text-align: left"
+        >
+          <h2>Your Contact Information</h2>
         </div>
-    </header>
 
-    <div class="container">
-        
-        <a href="stockfinal.html" class="back-link">← Back to Inventory</a> 
-        
-        <h1>Sell Your Car to Advanced Stock</h1>
-        <p style="text-align: center; color: var(--text-secondary);">Please provide your vehicle and contact details below. All fields are required.</p>
+        <div class="form-group">
+          <label for="email"
+            ><i class="fas fa-envelope"></i> Email Address</label
+          >
+          <input
+            type="email"
+            id="email"
+            name="email"
+            required
+            placeholder="Enter your email"
+          />
+        </div>
 
-        <form id="sellCarForm" class="sell-form">
-            
-            <h2>Your Contact Information</h2>
-            <label for="email">Email Address</label>
-            <input type="email" id="email" name="email" required>
-            
-            <label for="phone">Phone Number</label>
-            <input type="tel" id="phone" name="phone" required>
-            
-            <h2>Vehicle Details</h2>
-            <label for="make">Make</label>
-            <input type="text" id="make" name="make" required>
-            
-            <label for="name">Model Name</label>
-            <input type="text" id="name" name="name" required>
+        <div class="form-group">
+          <label for="phone"><i class="fas fa-phone"></i> Phone Number</label>
+          <input
+            type="tel"
+            id="phone"
+            name="phone"
+            required
+            placeholder="Enter your phone number"
+          />
+        </div>
 
-            <label for="year">Year</label>
-            <input type="number" id="year" name="year" min="1900" max="2026" required>
-            
-            <label for="price">Target Selling Price ($)</label>
-            <input type="number" id="price" name="price" min="1000" required>
-            
-            <label for="quantity">Quantity to Sell</label>
-            <input type="number" id="quantity" name="quantity" min="1" required>
+        <div
+          class="section-header"
+          style="margin-bottom: 30px; text-align: left; margin-top: 40px"
+        >
+          <h2>Vehicle Details</h2>
+        </div>
 
-            <label for="overview">Vehicle Overview / Description</label>
-            <textarea id="overview" name="overview" rows="5" required></textarea>
-            
-            <label for="image">Upload Vehicle Image</label>
-            <input type="file" id="image" name="image" accept="image/*" required>
-            
-            <button type="submit">Submit Car for Review</button>
-            
-            <p id="message" style="color: #ff0000;"></p>
-        </form>
+        <div class="form-group">
+          <label for="make"><i class="fas fa-car"></i> Make</label>
+          <input
+            type="text"
+            id="make"
+            name="make"
+            required
+            placeholder="e.g. BMW, Audi"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="name"><i class="fas fa-tag"></i> Model Name</label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            required
+            placeholder="e.g. M4 Competition"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="year"><i class="fas fa-calendar"></i> Year</label>
+          <input
+            type="number"
+            id="year"
+            name="year"
+            min="1900"
+            max="2026"
+            required
+            placeholder="e.g. 2023"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="price"
+            ><i class="fas fa-dollar-sign"></i> Target Selling Price ($)</label
+          >
+          <input
+            type="number"
+            id="price"
+            name="price"
+            min="1000"
+            required
+            placeholder="e.g. 50000"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="quantity"
+            ><i class="fas fa-layer-group"></i> Quantity to Sell</label
+          >
+          <input
+            type="number"
+            id="quantity"
+            name="quantity"
+            min="1"
+            required
+            value="1"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="overview"
+            ><i class="fas fa-align-left"></i> Vehicle Overview /
+            Description</label
+          >
+          <textarea
+            id="overview"
+            name="overview"
+            rows="5"
+            required
+            placeholder="Describe the condition, features, and history..."
+          ></textarea>
+        </div>
+
+        <div class="form-group">
+          <label for="image"
+            ><i class="fas fa-image"></i> Upload Vehicle Image</label
+          >
+          <input
+            type="file"
+            id="image"
+            name="image"
+            accept="image/*"
+            required
+            style="padding-top: 10px"
+          />
+        </div>
+
+        <button
+          type="submit"
+          class="btn btn-primary full-width"
+          style="margin-top: 20px"
+        >
+          Submit Car for Review
+        </button>
+
+        <p
+          id="message"
+          style="color: #ff0000; text-align: center; margin-top: 20px"
+        ></p>
+      </form>
     </div>
-    
-    <script src="script.js"></script> 
 
-</body>
+    <div id="footer-placeholder"></div>
+    <script src="script.js"></script>
+    <script src="../js/components.js"></script>
+  </body>
 </html>

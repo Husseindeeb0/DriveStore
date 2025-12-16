@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // 2. Update the on-page message
         // Success message uses the Accent Color
-        messageElement.style.color = '#3b82f6'; 
+        messageElement.style.color = '#4caf50'; 
         messageElement.innerHTML = `
             Submission Successful! We have your details and will contact you via email (${formData.email}) soon.
         `;

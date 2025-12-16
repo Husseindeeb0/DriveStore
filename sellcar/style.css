@@ -1,159 +1,150 @@
-/*
- * ULTRA-MODERN BLUE/GOLD THEME CSS with Enhanced Glassmorphism Background
- */
-
 :root {
-    /* NEW Core Theme Colors */
-    --bg-color: #0a0a0a;
-    --surface-color: #1a1a1a;
-    --accent-color: #3b82f6; /* Electric Blue Accent (Main brand color) */
-    --accent-glow: rgba(59, 130, 246, 0.7); /* Adjusted for stronger glow */
-    --gold-accent: #ffd700;
-    
-    /* NEW Typography Colors */
-    --text-primary: #ffffff;
-    --text-secondary: #a0a0a0;
-    
-    /* Standard UI Colors */
-    --color-success: #4caf50; 
-    --color-error: #f44336; 
-    --color-header-footer: #111111;
+  /* NEW Core Theme Colors */
+  --bg-color: #0a0a0a;
+  --surface-color: #1a1a1a;
+  --accent-color: #3b82f6; /* Electric Blue Accent (Main brand color) */
+  --accent-glow: rgba(59, 130, 246, 0.7); /* Adjusted for stronger glow */
+  --gold-accent: #ffd700;
+
+  /* NEW Typography Colors */
+  --text-primary: #ffffff;
+  --text-secondary: #a0a0a0;
+
+  /* Standard UI Colors */
+  --color-success: #4caf50;
+  --color-error: #f44336;
+  --color-header-footer: #111111;
+}
+
+/* Background Elements */
+.bg-glow {
+  position: fixed !important; /* Force fixed position to stay in view */
+  width: 600px;
+  height: 600px;
+  background: var(--accent-color);
+  filter: blur(150px);
+  opacity: 0.5;
+  border-radius: 50%;
+  z-index: 0;
 }
 
 /* 1. Global Styling */
 body {
-    font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    /* Use the gradient for a dynamic background that the glass container can blur */
-    background: var(--bg-color); 
-    background-image: radial-gradient(circle at 75% 15%, #1e1e2f 0%, #0a0a0a 100%);
-    background-size: cover;
-    background-attachment: fixed;
-    color: var(--text-primary);
-    margin: 0;
-    padding: 0;
-    line-height: 1.7; 
-    scroll-behavior: smooth; 
-    overflow-x: hidden; 
+  font-family: "Inter", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  /* Use the gradient for a dynamic background that the glass container can blur */
+  background: var(--bg-color);
+  background-image: radial-gradient(
+    circle at 75% 15%,
+    #1e1e2f 0%,
+    #0a0a0a 100%
+  );
+  background-size: cover;
+  background-attachment: fixed;
+  color: var(--text-primary);
+  margin: 0;
+  padding: 0 20px;
+  line-height: 1.7;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 a {
-    color: var(--accent-color);
-    text-decoration: none;
-    transition: color 0.3s ease;
+  color: var(--accent-color);
+  text-decoration: none;
+  transition: color 0.3s ease;
 }
 
 a:hover {
-    color: var(--gold-accent); 
+  color: var(--gold-accent);
 }
 
-/* 2. HEADER & FOOTER Styling */
-.site-header, .site-footer {
-    background-color: var(--color-header-footer);
-    padding: 15px 40px;
-    border-bottom: 1px solid #222;
-    z-index: 1001;
-}
-
-.site-header {
-    position: sticky;
-    top: 0;
-}
-
-.site-footer {
-    margin-top: 60px;
-    text-align: center;
-    padding: 25px 40px;
-    border-top: 1px solid #222;
-    border-bottom: none;
-    font-size: 0.9em;
-    color: var(--text-secondary);
-}
-
-.logo {
-    font-size: 1.5em;
-    font-weight: 900;
-    color: var(--gold-accent); 
-    letter-spacing: 2px;
-}
+/* 2. HEADER & FOOTER Styling - Handled by components/style.css and style.css */
 
 .back-link {
-    display: block; 
-    padding: 20px 0;
-    font-size: 1.1em;
-    font-weight: 600;
-    letter-spacing: 1px;
+  display: block;
+  padding: 20px 0;
+  font-size: 1.1em;
+  font-weight: 600;
+  letter-spacing: 1px;
 }
 
 /* 3. Layout Structure & Typography Adjustments */
 .container {
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 0 40px;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 40px;
 }
 
-p {
-    font-size: 1.25em; 
-    font-weight: 300; 
-    margin-bottom: 20px;
-    color: var(--text-primary);
+.container p {
+  font-size: 1.25em;
+  font-weight: 300;
+  margin-bottom: 20px;
+  color: var(--text-primary);
 }
 
 h1 {
-    font-size: 4.5em;
-    font-weight: 900;
-    text-transform: uppercase;
-    letter-spacing: -2px;
-    margin: 0 0 20px 0;
-    color: var(--text-primary);
-    line-height: 1.1;
+  font-size: 2.5em;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: -2px;
+  margin: 0 0 20px 0;
+  color: var(--text-primary);
+  line-height: 1.1;
 }
 
 h2 {
-    font-size: 2.2em;
-    font-weight: 700;
-    color: var(--text-primary); /* H2 is white globally */
+  font-size: 1.2em;
+  font-weight: 700;
+  color: var(--text-primary); /* H2 is white globally */
 }
 
 /* CARDS (For pages other than sell_trial) */
 .content-card {
-    /* Glass Effect: Darker, more opaque glass */
-    background-color: rgba(26, 26, 26, 0.6); 
-    backdrop-filter: blur(8px); 
-    -webkit-backdrop-filter: blur(8px);
-    border: 1px solid rgba(255, 255, 255, 0.1); 
-    padding: 35px;
-    border-radius: 12px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
-    transition: box-shadow 0.3s ease;
+  /* Glass Effect: Darker, more opaque glass */
+  background-color: rgba(26, 26, 26, 0.6);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 35px;
+  border-radius: 12px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+  transition: box-shadow 0.3s ease;
 }
 
 /* ... (Remaining consistent styles) ... */
 
 /* Pros and Cons Colors (Maintained) */
 .pros h3 {
-    color: var(--color-success);
+  color: var(--color-success);
 }
 
 .cons h3 {
-    color: var(--color-error);
+  color: var(--color-error);
 }
 
-ul li::before {
-    content: '→';
-    position: absolute;
-    left: 0;
-    color: var(--accent-color); 
-    font-weight: bold;
+.container ul li::before {
+  content: "→";
+  position: absolute;
+  left: 0;
+  color: var(--accent-color);
+  font-weight: bold;
 }
 
 /* 4. Dynamic Continuous Fade In/Out Animation (Unchanged) */
+/* Specific Layout for Sell Page */
+.results-container {
+  max-width: 800px !important; /* Override global container width for form focus */
+  margin-top: 60px !important;
+  margin-bottom: 60px;
+}
+
 .fade-item {
-    opacity: 0;
-    transform: translateY(30px); 
-    transition: opacity 0.6s ease-out, transform 0.6s ease-out; 
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
 
 .fade-item.is-visible {
-    opacity: 1;
-    transform: translateY(0);
+  opacity: 1;
+  transform: translateY(0);
 }
