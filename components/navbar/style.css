@@ -56,6 +56,8 @@ body {
 }
 
 .nav-menu a {
+  color: #ffffff;
+  text-decoration: none;
   font-size: 1em;
   padding: 20px 0;
   display: block;

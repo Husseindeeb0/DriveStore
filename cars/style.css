@@ -109,18 +109,19 @@ body {
   flex-direction: row-reverse;
   align-items: center;
   gap: 80px;
-  padding: 80px 0;
+  padding: 10px 0;
   min-height: 70vh;
 }
 
 .overview-text-wrapper {
   max-width: 50%;
+  margin-bottom: 80px;
 }
 
 /* --- CAROUSEL STYLING --- */
 
 .carousel-container {
-  height: 600px;
+  height: 400px;
   max-width: 50%;
   border-radius: 12px;
   transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1),

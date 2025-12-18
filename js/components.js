@@ -41,6 +41,8 @@ document.addEventListener("DOMContentLoaded", function () {
             img.src = `${projectRoot}/${src.substring(6)}`;
           } else if (src && src.startsWith("../")) {
             img.src = `${projectRoot}/${src.substring(3)}`;
+          } else if (src && src.startsWith("./")) {
+            img.src = `${projectRoot}/${src.substring(2)}`;
           }
         });
 
@@ -81,6 +83,8 @@ document.addEventListener("DOMContentLoaded", function () {
             img.src = `${projectRoot}/${src.substring(6)}`;
           } else if (src && src.startsWith("../")) {
             img.src = `${projectRoot}/${src.substring(3)}`;
+          } else if (src && src.startsWith("./")) {
+            img.src = `${projectRoot}/${src.substring(2)}`;
           }
         });
 
